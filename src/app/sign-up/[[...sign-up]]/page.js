@@ -37,9 +37,21 @@ export default async function SignUpPage() {
       <SignUp />
       <form action={handleSubmitProfile}>
         <label htmlFor="nickname">Nickname</label>
-        <input type="text" name="nickname" id="nickname" required />
+        <input
+          className=" text-black"
+          type="text"
+          name="nickname"
+          id="nickname"
+          required
+        />
         <label htmlFor="bio">Biography</label>
-        <input type="text" name="bio" id="bio" required />
+        <input
+          className=" text-black"
+          type="text"
+          name="bio"
+          id="bio"
+          required
+        />
         <label htmlFor="clerk_id"></label>
         <input
           type="hidden"

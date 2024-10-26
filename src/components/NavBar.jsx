@@ -22,10 +22,11 @@ export default async function NavBar() {
         </div>
       </SignedOut>
       <SignedIn>
+        <UserButton className="p-4" />
         <div className="flex flex-col space-y-20 p-2.5">
-          <Link href="/">Home</Link>
+          <Link href="/home">Home</Link>
           <Link href={`/user/${userId}`}>Profile Page</Link>
-          <Link href="/posts">Posts</Link>
+          <Link href={`/posts`}>Posts</Link>
         </div>
       </SignedIn>
     </>

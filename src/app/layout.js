@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       appearance={{
         baseTheme: dark,
         variables: {
-          colorPrimary: "black",
+          colorPrimary: "white",
         },
       }}
     >

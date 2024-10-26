@@ -1,0 +1,10 @@
+.user_profile {
+  color: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_profile.h2 {
+  font-size: 30px;
+}
