@@ -1,5 +1,15 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import { Playfair_Display } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+
+const PlayfairDisplay = Playfair_Display({
+  weight: "400",
+  style: "normal",
+  subsets: ["latin"],
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,12 +29,23 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+        variables: {
+          colorPrimary: "black",
+        },
+      }}
+    >
+      <html lang="en">
+        <body
+          // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={PlayfairDisplay.className}
+        >
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
