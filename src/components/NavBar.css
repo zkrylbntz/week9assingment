@@ -1,0 +1,29 @@
+.signed-in {
+  font-size: xx-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  border-right: solid gainsboro;
+  padding-top: 20px;
+  z-index: 0;
+}
+
+.home {
+  padding-bottom: 10px;
+}
+.home:hover {
+  color: navy;
+}
+
+.profile:hover {
+  color: navy;
+}
+
+.posts:hover {
+  color: navy;
+}
+
+/* .nav-bar {
+  width: 15vw;
+} */

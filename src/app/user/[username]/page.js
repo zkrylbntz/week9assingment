@@ -3,6 +3,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import profileStyles from "@/app/user/user.module.css";
 import Link from "next/link";
 import { db } from "@/utils/dbConnection";
+import { notFound } from "next/navigation";
 // Auth() --> userId
 // currentUser --> username, email address, ...
 
@@ -33,6 +34,9 @@ export default async function UserPage({ params }) {
         </h2>
       </div>
       <p>{wrangledUsers_profile.nickname}</p>
+      <p>{wrangledUsers_profile.age}</p>
+      <p>{wrangledUsers_profile.location}</p>
+      <p>{wrangledUsers_profile.hometown}</p>
       <p>{wrangledUsers_profile.bio}</p>
 
       <p>

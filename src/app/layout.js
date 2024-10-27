@@ -43,6 +43,7 @@ export default function RootLayout({ children }) {
           className={PlayfairDisplay.className}
         >
           <NavBar />
+
           {children}
         </body>
       </html>

@@ -21,47 +21,78 @@ export default async function SignUpPage() {
   async function handleSubmitProfile(formData) {
     "use server";
     const nickname = formData.get("nickname");
+    const age = formData.get("age");
+    const location = formData.get("location");
+    const hometown = formData.get("hometown");
     const bio = formData.get("bio");
     const clerk_id = formData.get("clerk_id");
 
     await db.query(
-      `INSERT INTO users_profile (nickname, bio, clerk_id) VALUES ($1, $2, $3)`,
-      [nickname, bio, clerk_id]
+      `INSERT INTO users_profile (nickname, age, location, hometown, bio, clerk_id) VALUES ($1, $2, $3, $4, $5, $6)`,
+      [nickname, age, location, hometown, bio, clerk_id]
     );
     revalidatePath("/sign-up");
     redirect(`/user/${userId}`);
   }
   return (
     <>
-      <h1 className="flex flex-row justify-center">Sign Up to...</h1>
-      <SignUp />
-      <form action={handleSubmitProfile}>
-        <label htmlFor="nickname">Nickname</label>
-        <input
-          className=" text-black"
-          type="text"
-          name="nickname"
-          id="nickname"
-          required
-        />
-        <label htmlFor="bio">Biography</label>
-        <input
-          className=" text-black"
-          type="text"
-          name="bio"
-          id="bio"
-          required
-        />
-        <label htmlFor="clerk_id"></label>
-        <input
-          type="hidden"
-          name="clerk_id"
-          id="clerk_id"
-          defaultValue={userId}
-        />
-        <p>Welcome</p>
-        <button type="submit">Submit profile</button>
-      </form>
+      <div className="flex flex-col items-center">
+        <SignUp />
+
+        <form action={handleSubmitProfile}>
+          <label htmlFor="nickname">Nickname</label>
+          <input
+            className=" text-black"
+            type="text"
+            name="nickname"
+            id="nickname"
+            required
+          />
+          <label htmlFor="age">Age</label>
+          <input
+            className=" text-black"
+            type="number"
+            name="age"
+            id="age"
+            required
+          />
+          <label htmlFor="location">Location</label>
+          <input
+            className=" text-black"
+            type="text"
+            name="location"
+            id="location"
+            required
+          />
+          <label htmlFor="hometown">Hometown</label>
+          <input
+            className=" text-black"
+            type="text"
+            name="hometown"
+            id="hometown"
+            required
+          />
+
+          <label htmlFor="bio">Biography</label>
+          <textarea
+            rows={4}
+            cols={40}
+            className=" text-black"
+            type="text"
+            name="bio"
+            id="bio"
+            required
+          />
+          <label htmlFor="clerk_id"></label>
+          <input
+            type="hidden"
+            name="clerk_id"
+            id="clerk_id"
+            defaultValue={userId}
+          />
+          <button type="submit">Submit profile</button>
+        </form>
+      </div>
     </>
   );
 }

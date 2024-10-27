@@ -58,7 +58,7 @@ export default async function EditPage({ params }) {
           name="post_title"
           id="post_title"
           required
-          className="text-orange-600"
+          className="text-black"
           defaultValue={wrangledPost.post_title}
         />
 
@@ -68,13 +68,13 @@ export default async function EditPage({ params }) {
           name="post_content"
           id="post_content"
           required
-          className="text-orange-600"
+          className="text-black"
           defaultValue={wrangledPost.post_content}
         />
 
         <button
           type="submit"
-          className="border-rose-400 border-4 bg-yellow-400 text-rose-400 p-2 m-4"
+          className="border-red-600 border-4 text-red-600 p-2 m-4"
         >
           Submit
         </button>
